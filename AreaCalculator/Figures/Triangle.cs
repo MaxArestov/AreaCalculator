@@ -12,7 +12,7 @@ namespace AreaCalculator.Figures
         public double Side1 { get; }
         public double Side2 { get; }
         public double Side3 { get; }
-        private bool IsRightTriangle { get; }
+        private bool _isRightTriangle { get; }
 
         public Triangle(double side1, double side2, double side3)
         {
@@ -36,7 +36,7 @@ namespace AreaCalculator.Figures
             this.Side1 = side1;
             this.Side2 = side2;
             this.Side3 = side3;
-            this.IsRightTriangle = IsRightAngle();
+            this._isRightTriangle = IsRightAngle();
         }
 
         public bool IsRightAngle()
@@ -51,7 +51,7 @@ namespace AreaCalculator.Figures
         public double GetArea()
         {
             double area = new double();
-            if (IsRightTriangle)
+            if (_isRightTriangle)
             {
                 double hypotenuse = Math.Max(Math.Max(Side1, Side2), Side3);
                 area = ((Side1 * Side2 * Side3) / hypotenuse) / 2;
